@@ -1,19 +1,6 @@
-// const copyFiles = require('./init-copy-files')
-// const prompInput = require('./init-prompt-input')
-// const editFile = require('./init-edit-file')
-
-// const ora = require('ora')
-// const chalk = require('chalk')
-// const spinner = ora(chalk.green('Init project start'))
-// const path = require('path')
-
-// let copyPath =''
-// let copyFolder = ''
-// let destPath = path.resolve('./')
-
 const inquirer = require('inquirer')
 const copyFiles = require('./init-copy-files')
-const editFile = require('./init-edit-file')
+const { editFileWithTemplate, copyIgnoreFile } = require('./init-edit-file')
 
 const ora = require('ora')
 const chalk = require('chalk')
@@ -35,12 +22,10 @@ function doCopy() {
   }
   copyPath =  path.resolve(`./node_modules/${copyFolder}`)
   spinner.start()
-  copyFiles.doCopy(destPath, copyPath).then(res => {
-    // let packageJsonFilePath = path.join(copyPath + '/package.json')
-    // if(res === true){
-    //   return editFile.editPackageJsonFile(packageJsonFilePath, global.projectName)
-    // }
-  }).then(res => {
+  copyFiles.doCopy(destPath, copyPath).then(() => {
+    copyIgnoreFile(destPath)
+    editFileWithTemplate(destPath)
+  }).then(() => {
     spinner.stop()
     console.log(chalk.green('Init project success'))
     process.exit()
@@ -51,7 +36,7 @@ function doCopy() {
   })
 }
 
-function doInit() {
+function doIntractive() {
   const promptList = [
     {
       type: 'list',
@@ -79,6 +64,16 @@ function doInit() {
     global.projectName = answers.projectName
     doCopy()
   })
+}
+
+function doInit() {
+  console.info('--arg:', process.argv)
+  if (process.argv.length > 2) {
+    let arg = process.argv[process.argv.length]
+    console.info('##arg:', arg)
+  } else {
+    doIntractive()
+  }
 }
 
 module.exports = {

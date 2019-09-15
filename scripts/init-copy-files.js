@@ -3,15 +3,13 @@ const path = require('path')
 
 const skiptFolderName = 'node_modules'
 
-function cpoyFile (srcPath, destPath) {
+function cpoyFile (srcPath, destPath) {  
   fs.copyFileSync(srcPath, destPath)
 }
 
 function readdir (srcPath) {
   let files = []
-
   files = fs.readdirSync(srcPath)
-
   return files
 }
 
