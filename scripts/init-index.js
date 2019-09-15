@@ -71,6 +71,9 @@ function doInit() {
   if (process.argv.length > 2) {
     let arg = process.argv[process.argv.length]
     console.info('##arg:', arg)
+    if (arg === '-v' || arg === '--version') {
+      console.info('##arg:', arg)
+    }
   } else {
     doIntractive()
   }
