@@ -1,0 +1,40 @@
+{
+  "name": "hf-vue-cli",
+  "version": "1.0.0",
+  "private": false,
+  "description": "a cli for hf font-end projects pc and h5",
+  "bin": {
+    "hf-vue-cli": "./bin/index.js"
+  },
+  "scripts": {
+    "hf-vue-cli": "node ./scripts/init.js",
+    "release": "node ./scripts/release.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.15.1",
+    "download-git-repo": "^1.0.2",
+    "handlebars": "^4.2.0",
+    "hf-vue-h5": "^1.0.0",
+    "hf-vue-pc": "^1.0.0",
+    "inquirer": "^5.2.0",
+    "ora": "^2.1.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "hf-vue-cli",
+    "vue"
+  ],
+  "author": "appletxm",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/appletxm/hf-vue-cli.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/appletxm/hf-vue-cli/issues"
+  },
+  "node": {
+    "version": ">=8.0"
+  }
+}

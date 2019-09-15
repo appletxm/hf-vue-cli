@@ -1,0 +1,20 @@
+.#{$prefix}-c-user-login{
+  font-size: $font-14;
+  .body {
+    padding: $page-gap;
+    text-align: center;
+
+    input {
+      margin: $page-gap auto;
+      width: 60%;
+    }
+  }
+
+  footer {
+    text-align: center;
+    padding: $page-gap;
+    button {
+      width: .8rem;
+    }
+  }
+}

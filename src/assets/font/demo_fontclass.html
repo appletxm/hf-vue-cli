@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>IconFont</title>
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="iconfont.css">
+</head>
+<body>
+    <div class="main markdown">
+        <h1>IconFont 图标</h1>
+        <ul class="icon_lists clear">
+            
+                <li>
+                <i class="icon hf-iconfont icon-bianji"></i>
+                    <div class="name">bianji</div>
+                    <div class="fontclass">.icon-bianji</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-chakuaidi"></i>
+                    <div class="name">chakuaidi</div>
+                    <div class="fontclass">.icon-chakuaidi</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-butongyi"></i>
+                    <div class="name">butongyi</div>
+                    <div class="fontclass">.icon-butongyi</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-jijiandizhi"></i>
+                    <div class="name">jijiandizhi</div>
+                    <div class="fontclass">.icon-jijiandizhi</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-jikuaidi"></i>
+                    <div class="name">jikuaidi</div>
+                    <div class="fontclass">.icon-jikuaidi</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-lajitong"></i>
+                    <div class="name">lajitong</div>
+                    <div class="fontclass">.icon-lajitong</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-moren_weixuan"></i>
+                    <div class="name">moren_weixuan</div>
+                    <div class="fontclass">.icon-moren_weixuan</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-shanchu"></i>
+                    <div class="name">shanchu</div>
+                    <div class="fontclass">.icon-shanchu</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-kuaidi"></i>
+                    <div class="name">kuaidi</div>
+                    <div class="fontclass">.icon-kuaidi</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-morengouxuan"></i>
+                    <div class="name">morengouxuan</div>
+                    <div class="fontclass">.icon-morengouxuan</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-sousuo"></i>
+                    <div class="name">sousuo</div>
+                    <div class="fontclass">.icon-sousuo</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-tongyi"></i>
+                    <div class="name">tongyi</div>
+                    <div class="fontclass">.icon-tongyi</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-shoujiandizhi"></i>
+                    <div class="name">shoujiandizhi</div>
+                    <div class="fontclass">.icon-shoujiandizhi</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-wuguiji"></i>
+                    <div class="name">wuguiji</div>
+                    <div class="fontclass">.icon-wuguiji</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-yiqianshou_icon"></i>
+                    <div class="name">yiqianshou_icon</div>
+                    <div class="fontclass">.icon-yiqianshou_icon</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-wentijian_icon"></i>
+                    <div class="name">wentijian_icon</div>
+                    <div class="fontclass">.icon-wentijian_icon</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-zaituzhong_icon"></i>
+                    <div class="name">zaituzhong_icon</div>
+                    <div class="fontclass">.icon-zaituzhong_icon</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-zhankai"></i>
+                    <div class="name">zhankai</div>
+                    <div class="fontclass">.icon-zhankai</div>
+                </li>
+            
+                <li>
+                <i class="icon hf-iconfont icon-dui"></i>
+                    <div class="name">dui</div>
+                    <div class="fontclass">.icon-dui</div>
+                </li>
+            
+        </ul>
+
+        <h2 id="font-class-">font-class引用</h2>
+        <hr>
+
+        <p>font-class是unicode使用方式的一种变种，主要是解决unicode书写不直观，语意不明确的问题。</p>
+        <p>与unicode使用方式相比，具有如下特点：</p>
+        <ul>
+        <li>兼容性良好，支持ie8+，及所有现代浏览器。</li>
+        <li>相比于unicode语意明确，书写更直观。可以很容易分辨这个icon是什么。</li>
+        <li>因为使用class来定义图标，所以当要替换图标时，只需要修改class里面的unicode引用。</li>
+        <li>不过因为本质上还是使用的字体，所以多色图标还是不支持的。</li>
+        </ul>
+        <p>使用步骤如下：</p>
+        <h3 id="-fontclass-">第一步：引入项目下面生成的fontclass代码：</h3>
+
+
+        <pre><code class="lang-js hljs javascript"><span class="hljs-comment">&lt;link rel="stylesheet" type="text/css" href="./iconfont.css"&gt;</span></code></pre>
+        <h3 id="-">第二步：挑选相应图标并获取类名，应用于页面：</h3>
+        <pre><code class="lang-css hljs">&lt;<span class="hljs-selector-tag">i</span> <span class="hljs-selector-tag">class</span>="<span class="hljs-selector-tag">hf-iconfont</span> <span class="hljs-selector-tag">icon-xxx</span>"&gt;&lt;/<span class="hljs-selector-tag">i</span>&gt;</code></pre>
+        <blockquote>
+        <p>"hf-iconfont"是你项目下的font-family。可以通过编辑项目查看，默认是"iconfont"。</p>
+        </blockquote>
+    </div>
+</body>
+</html>

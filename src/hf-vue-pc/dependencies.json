@@ -1,0 +1,58 @@
+{
+    "name" :"{{projectName}}",
+    "dependencies": {
+        "javascript": {
+          "0-@babel/polyfill": {
+            "version": "7.4.3",
+            "src": "node_modules/@babel/polyfill/dist/polyfill.min.js",
+            "dest": "src/assets/js/polyfill.<%version%>.min.js"
+          },
+          "1-moment": {
+            "version": "2.24.0",
+            "src": "node_modules/moment/min/moment.min.js",
+            "dest": "src/assets/js/moment.<%version%>.min.js"
+          },
+          "2-lodash": {
+            "version": "4.17.15",
+            "src": "node_modules/lodash/lodash.min.js",
+            "dest": "src/assets/js/lodash.<%version%>.min.js"
+          },
+          "3-vue": {
+            "version": "2.6.10",
+            "src": "node_modules/vue/dist/vue.min.js",
+            "dest": "src/assets/js/vue.<%version%>.min.js"
+          },
+          "4-vue-router": {
+            "version": "3.0.0",
+            "src": "node_modules/vue-router/dist/vue-router.min.js",
+            "dest": "src/assets/js/vue-router.<%version%>.min.js"
+          },
+          "5-vuex": {
+            "version": "3.1.1",
+            "src": "node_modules/vuex/dist/vuex.min.js",
+            "dest": "src/assets/js/vuex.<%version%>.min.js"
+          },
+          "6-element-ui": {
+            "version": "2.12.0",
+            "src": "node_modules/element-ui/lib/index.js",
+            "dest": "src/assets/js/element-ui.<%version%>.min.js"
+          }
+        },
+
+        "css": {
+          "element-ui": {
+            "version": "2.12.0",
+            "src": "node_modules/element-ui/lib/theme-chalk/index.css",
+            "dest": "src/assets/style/element-ui.<%version%>/index.min.css"
+          }
+        },
+
+        "font": {
+          "element-ui": {
+            "version": "2.12.0",
+            "src": "node_modules/element-ui/lib/theme-chalk/fonts",
+            "dest": "src/assets/style/element-ui.<%version%>/fonts"
+          }
+        }
+    }
+}

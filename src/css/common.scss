@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+img {
+  border: 0;
+}
+
+body {
+  font-size: $font-14;
+  font-family: $font-family;
+}
+
+.c {
+  clear: both;
+}
+
+a {
+  color: $purple;
+  text-decoration: none;
+}
+input {
+  height: .4rem;
+  line-height: .4rem;
+  border-radius: 0.03rem;
+  border: 1px solid $gray-light;
+  text-indent: .1rem;
+  @include transition(all .5s ease);
+
+  &:focus {
+    border-color: $purple;
+  }
+}

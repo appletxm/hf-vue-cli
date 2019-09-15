@@ -1,0 +1,28 @@
+.#{$prefix}-c-navigator{
+  font-size: $font-14;
+  list-style: none;
+  display: flex;
+  height: 40px;
+  line-height: 40px;
+
+  li {
+    flex: 50% 1 1;
+    text-align: center;
+    color: $white;
+    cursor: pointer;
+    background-color: $purple;
+    @include transition(all .5s ease);
+
+    &:hover {
+      background-color: $orange;
+    }
+
+    span {
+      margin-right: 5px;
+    }
+
+    &.actived {
+      background-color: $orange;
+    }
+  }
+}
