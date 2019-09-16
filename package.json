@@ -14,8 +14,8 @@
     "chalk": "^2.4.1",
     "commander": "^2.15.1",
     "download-git-repo": "^1.0.2",
-    "hf-vue-h5": "^1.0.0",
-    "hf-vue-pc": "^1.0.0",
+    "hf-vue-h5": "^1.0.2",
+    "hf-vue-pc": "^1.0.4",
     "inquirer": "^5.2.0",
     "ora": "^2.1.0"
   },
