@@ -1,6 +1,7 @@
 const inquirer = require('inquirer')
 const copyFiles = require('./init-copy-files')
 const { editFileWithTemplate, copyIgnoreFile } = require('./init-edit-file')
+const { getVersion } = require('./commanders')
 
 const ora = require('ora')
 const chalk = require('chalk')
@@ -12,15 +13,16 @@ const defaultProjectType = 'pc'
 
 let copyPath =''
 let copyFolder = ''
-let destPath = path.resolve('./test')
+let destPath = path.resolve('./')
+
+global.projectType = ''
+global.projectName = ''
+global.sourcePath = ''
 
 function doCopy() {
-  if (global.projectType === 'pc') {
-    copyFolder = 'hf-vue-pc'
-  } else {
-    copyFolder = 'hf-vue-h5'
-  }
-  copyPath =  path.resolve(`./node_modules/${copyFolder}`)
+  copyFolder = `hf-vue-${global.projectType}`
+  // console.info('global.sourcePath:', global.sourcePath)
+  copyPath =  path.join(`${global.sourcePath}/node_modules/${copyFolder}`)
   spinner.start()
   copyFiles.doCopy(destPath, copyPath).then(() => {
     copyIgnoreFile(destPath)
@@ -43,8 +45,8 @@ function doIntractive() {
       message: 'Please choose you project type:',
       name: 'projectType',
       choices: [
-        "H5",
-        "PC"
+        "h5",
+        "pc"
       ],
       default: defaultProjectType,
       filter: function (val) {
@@ -67,12 +69,11 @@ function doIntractive() {
 }
 
 function doInit() {
-  console.info('--arg:', process.argv)
+  global.sourcePath = path.resolve(__dirname, '../')
   if (process.argv.length > 2) {
-    let arg = process.argv[process.argv.length]
-    console.info('##arg:', arg)
+    let arg = process.argv[process.argv.length - 1]
     if (arg === '-v' || arg === '--version') {
-      console.info('##arg:', arg)
+      getVersion()
     }
   } else {
     doIntractive()
