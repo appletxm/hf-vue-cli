@@ -1,7 +1,12 @@
 const inquirer = require('inquirer')
 const copyFiles = require('./init-copy-files')
-const { editFileWithTemplate, copyIgnoreFile } = require('./init-edit-file')
-const { getVersion } = require('./commanders')
+const {
+  editFileWithTemplate,
+  copyIgnoreFile
+} = require('./init-edit-file')
+const {
+  getVersion
+} = require('./commanders')
 
 const ora = require('ora')
 const chalk = require('chalk')
@@ -10,20 +15,29 @@ const path = require('path')
 
 const defaultProjectName = 'hf-vue-app-pc'
 const defaultProjectType = 'pc'
+const nameReg = /^[a-zA-Z$][\w$_-]{3,29}$/
 
-let copyPath =''
+let copyPath = ''
 let copyFolder = ''
 let destPath = path.resolve('./')
 
 global.projectType = ''
 global.projectName = ''
 global.sourcePath = ''
+global.initEnv = 'npm'
 
 function doCopy() {
   copyFolder = `hf-vue-${global.projectType}`
   // console.info('global.sourcePath:', global.sourcePath)
-  copyPath =  path.join(`${global.sourcePath}/node_modules/${copyFolder}`)
+
+  if (global.initEnv === 'npm') {
+    copyPath = path.join(`${global.sourcePath}/node_modules/${copyFolder}`)
+  } else {
+    copyPath = path.join(`${global.sourcePath.replace('hf-vue-cli', '')}/${copyFolder}`)
+  }
+
   spinner.start()
+
   copyFiles.doCopy(destPath, copyPath).then(() => {
     copyIgnoreFile(destPath)
     editFileWithTemplate(destPath)
@@ -39,8 +53,7 @@ function doCopy() {
 }
 
 function doIntractive() {
-  const promptList = [
-    {
+  const promptList = [{
       type: 'list',
       message: 'Please choose you project type:',
       name: 'projectType',
@@ -49,7 +62,7 @@ function doIntractive() {
         "pc"
       ],
       default: defaultProjectType,
-      filter: function (val) {
+      filter(val) {
         return val.toLowerCase();
       }
     },
@@ -57,19 +70,34 @@ function doIntractive() {
       type: 'input',
       message: 'Please set a cool name for you app:',
       name: 'projectName',
-      default: defaultProjectName
+      default: defaultProjectName,
+      validate(val) {
+        if (!nameReg.test(val)) {
+          return 'Project name not correct (Beginning with the letter or $, and total size should be less than 30)'
+        }
+        return true
+      }
     }
   ]
 
   inquirer.prompt(promptList).then(answers => {
-    global.projectType = answers.projectType
-    global.projectName = answers.projectName
-    doCopy()
+    if (nameReg.test(answers.projectName)) {
+      global.projectType = answers.projectType
+      global.projectName = answers.projectName
+      doCopy()
+    } else {
+      console.info('Project name not correct')
+      process.exit(0)
+    }
   })
 }
 
 function doInit() {
+  global.initEnv = path.resolve(__dirname).toLowerCase().indexOf('yarn') >= 0 ? 'yarn' : 'npm'
   global.sourcePath = path.resolve(__dirname, '../')
+
+  console.info(chalk.green(`Module is ran by ${global.initEnv}`))
+
   if (process.argv.length > 2) {
     let arg = process.argv[process.argv.length - 1]
     if (arg === '-v' || arg === '--version') {
