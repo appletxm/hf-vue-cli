@@ -1,17 +1,18 @@
 const packageOperations = require('./release-package-operations')
 const tagOperations = require('./release-tag-operations')
 const releaseCodeOperations = require('./release-code-operations')
-const version = process.argv ? (process.argv)[2] : ''
-const desc = process.argv ? (process.argv)[3] : ''
+const { getVerionNo } = require('./release-version')
+let version = process.argv ? (process.argv)[3] : ''
+const desc = (process.argv ? (process.argv)[4] : 'version update') || 'version update'
 const ora = require('ora')
 const chalk = require('chalk')
-const spinner = ora('Releasing version: ' + version)
+let spinner
 
-
+version = getVerionNo(version)
 console.info('****releasing', version, desc)
+spinner = ora('Releasing version: ' + version)
 
 global.branch = 'master'
-
 spinner.start()
 
 releaseCodeOperations.switchBranch()
