@@ -34,6 +34,6 @@
     "url": "https://github.com/appletxm/hf-vue-cli/issues"
   },
   "node": {
-    "version": ">=8.0"
+    "version": ">=8.3"
   }
 }
