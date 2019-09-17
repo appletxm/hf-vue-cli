@@ -17,3 +17,5 @@ deploy/
 
 uploads/
 test
+yarn.lock
+package-lock.json
