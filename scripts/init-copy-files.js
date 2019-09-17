@@ -3,7 +3,7 @@ const path = require('path')
 
 const skiptFolderName = 'node_modules'
 
-function cpoyFile (srcPath, destPath) {  
+function cpoyFile (srcPath, destPath) {
   fs.copyFileSync(srcPath, destPath)
 }
 

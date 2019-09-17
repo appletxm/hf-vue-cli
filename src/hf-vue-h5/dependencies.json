@@ -38,7 +38,7 @@
           "dest": "src/assets/js/vant.<%version%>.min.js"
         }
       },
-  
+
       "css": {
         "vant": {
           "version": "2.2.1",
@@ -48,4 +48,3 @@
       }
     }
   }
-  
