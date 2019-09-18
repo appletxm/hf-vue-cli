@@ -1,6 +1,6 @@
 {
   "name": "hf-vue-cli",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": false,
   "description": "a cli for hf font-end projects pc and h5",
   "bin": {
